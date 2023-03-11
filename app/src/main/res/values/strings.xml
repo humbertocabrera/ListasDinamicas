@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Actividad6Marzo</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="su_nombre_por_favor">Su nombre por favor</string>
+    <string name="guardar">Guardar</string>
+    <string name="usar_preferencias">Usar Preferencias</string>
+    <string name="pc">PC</string>
+    <string name="_249_00_mxn">249.00 MXN</string>
+    <string name="valorant">Valorant</string>
+    <string name="comprar">Comprar</string>
+</resources>
