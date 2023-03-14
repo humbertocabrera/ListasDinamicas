@@ -11,7 +11,8 @@
     a la que apuntemos su altura sea "wrap_content" para que se vea muchas
     veces.-->
     <androidx.recyclerview.widget.RecyclerView
-       tools:listitem="@layout/activity_2"
+       android:id="@+id/recyclerJuegos"
+        tools:listitem="@layout/activity_2"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         />

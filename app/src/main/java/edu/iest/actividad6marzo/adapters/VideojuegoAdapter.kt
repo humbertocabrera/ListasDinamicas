@@ -1,7 +1,9 @@
 package edu.iest.actividad6marzo.adapters
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,7 +12,8 @@ import edu.iest.actividad6marzo.R
 import edu.iest.actividad6marzo.models.Videojuego
 
 
-class VideojuegoAdapter(videojuegos: ArrayList<Videojuego>, context: Context) {
+class VideojuegoAdapter(videojuegos: ArrayList<Videojuego>, context: Context) :
+    RecyclerView.Adapter<VideojuegoAdapter.ContenedorDeVista> (){
     //El ArrayList lo hacemos refiriendose a la class que tengo en la carpeta models
     var innerVideojuegos: ArrayList<Videojuego> = videojuegos
     var innerContext: Context = context
@@ -36,4 +39,29 @@ class VideojuegoAdapter(videojuegos: ArrayList<Videojuego>, context: Context) {
                     bnComprar = view.findViewById(R.id.bnComprar)
                 }
             }
+
+    //Se crean estos tres elementos dado que daba error al agregar :
+    //    RecyclerView.Adapter<VideojuegoAdapter.ContenedorDeVista> ()
+
+    //Que vista queremos repetir
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContenedorDeVista {
+        val view = LayoutInflater.from(parent.context).
+        inflate(R.layout.activity_2, parent, false)
+
+        return ContenedorDeVista(view)
+    }
+
+    //Que información se muestra
+    override fun onBindViewHolder(holder: ContenedorDeVista, position: Int) {
+        val videojuego: Videojuego = innerVideojuegos.get(position)
+        holder.tituloJuego.text = videojuego.nombre
+        holder.consola.text = videojuego.consola
+        holder.precio.text = videojuego.precio.toString()
+        holder.fotoJuego.setImageResource(videojuego.imagen)
+    }
+
+    //Cuantas veces la vamos a repetir
+    override fun getItemCount(): Int {
+        return innerVideojuegos.size
+    }
 }
