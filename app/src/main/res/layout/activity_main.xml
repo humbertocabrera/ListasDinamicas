@@ -7,11 +7,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/bienvenido"
         android:textColor="@color/black"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,37 +20,67 @@
         app:layout_constraintVertical_bias="0.039" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/etNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/su_nombre_por_favor"
+        android:autofillHints=""
+        android:hint="@string/introduzca_su_nombre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintTop_toBottomOf="@+id/textSize"
+        app:layout_constraintVertical_bias="0.094" />
+
+    <EditText
+        android:id="@+id/etEdad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/introduzca_su_edad"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSize"
+        app:layout_constraintVertical_bias="0.283" />
+
+    <EditText
+        android:id="@+id/etAltura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/introduzca_su_altura"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSize"
+        app:layout_constraintVertical_bias="0.483" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="168dp"
         android:text="@string/guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.142" />
+        app:layout_constraintVertical_bias="0.633" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switchPreferencias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:text="@string/usar_preferencias"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.934"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.655" />
+        app:layout_constraintVertical_bias="0.967" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

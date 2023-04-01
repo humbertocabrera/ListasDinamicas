@@ -8,4 +8,7 @@
     <string name="_249_00_mxn">249.00 MXN</string>
     <string name="valorant">Valorant</string>
     <string name="comprar">Comprar</string>
+    <string name="introduzca_su_nombre">Introduzca su nombre:</string>
+    <string name="introduzca_su_edad">Introduzca su edad:</string>
+    <string name="introduzca_su_altura">Introduzca su altura:</string>
 </resources>

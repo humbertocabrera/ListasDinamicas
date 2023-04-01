@@ -1,12 +1,9 @@
 package edu.iest.actividad6marzo
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
@@ -87,7 +84,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun inicializarVistas() {
-        tvBienvenido = findViewById(R.id.textView)
+        tvBienvenido = findViewById(R.id.textSize)
         etNombre = findViewById(R.id.editText)
         bnGuardar = findViewById(R.id.button)
         switchPreferencias = findViewById(R.id.switchPreferencias)
