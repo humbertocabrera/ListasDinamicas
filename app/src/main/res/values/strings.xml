@@ -11,4 +11,6 @@
     <string name="introduzca_su_nombre">Introduzca su nombre:</string>
     <string name="introduzca_su_edad">Introduzca su edad:</string>
     <string name="introduzca_su_altura">Introduzca su altura:</string>
+    <string name="monedero_disponible">Monedero Disponible</string>
+    <string name="preferences">preferences</string>
 </resources>

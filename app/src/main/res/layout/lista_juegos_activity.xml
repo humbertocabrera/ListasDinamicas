@@ -10,10 +10,20 @@
     la que estamos apuntando. Es importante en este caso que en la vista
     a la que apuntemos su altura sea "wrap_content" para que se vea muchas
     veces.-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatActButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:contentDescription="@string/preferences"
+        android:src="@drawable/settings"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/recyclerJuegos"
         tools:listitem="@layout/activity_2"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         />
+
 </LinearLayout>

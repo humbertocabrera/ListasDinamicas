@@ -1,5 +1,6 @@
 package edu.iest.actividad6marzo
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
@@ -11,16 +12,27 @@ import android.widget.EditText
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.widget.SwitchCompat
 
 class MainActivity : AppCompatActivity() {
     private lateinit var tvBienvenido: TextView
     private lateinit var etNombre: EditText
+    private lateinit var etAltura: EditText
+    private lateinit var etEdad: EditText
+    private lateinit var etMonedero: EditText
     private lateinit var bnGuardar: Button
-    private lateinit var switchPreferencias: Switch
+    private lateinit var switchPreferencias: SwitchCompat
     private val NOMBRE_KEY = "nombre"
+    private val ALTURA_KEY = "altura"
+    private val EDAD_KEY = "edad"
+    private val MONEDERO_KEY = "monedero"
     private val SWITCH_KEY = "switch_estado"
     private val NOMBRE_INSTANCIA = "nombre_instancia"
+
     private var nombre: String = ""
+    private var edad: Int = 0
+    private var altura: Float = 0F
+    private var monedero: Float = 0F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,11 +66,19 @@ class MainActivity : AppCompatActivity() {
         Log.d("PREFERENCIAS", "onResume")
         if(TextUtils.isEmpty(nombre)){
             val miSharedPreferences = getSharedPreferences("PERSISTENCIA", MODE_PRIVATE)
+            //Al tener activo el Switch de Preferences, cuando re-abramos la app deben salir
+            //los datos previamente guardados.
             nombre = miSharedPreferences.getString(NOMBRE_KEY, "").toString()
+            altura = miSharedPreferences.getFloat(ALTURA_KEY, 0F)
+            monedero = miSharedPreferences.getFloat(MONEDERO_KEY, 0F)
+            edad = miSharedPreferences.getInt(EDAD_KEY, 0)
 
         }
-
-        tvBienvenido.text = nombre
+        //Seteamos la info en los campos
+        etNombre.setText(nombre)
+        etAltura.setText(altura.toString())
+        etMonedero.setText(monedero.toString())
+        etEdad.setText(edad.toString())
         super.onResume()
     }
 
@@ -79,23 +99,40 @@ class MainActivity : AppCompatActivity() {
 
     private fun cambiarTextoBienvenida(nombre: String) {
         if (!TextUtils.isEmpty(nombre)) {
-            tvBienvenido.text = "Bienvenido " + nombre
+            tvBienvenido.text = "Bienvenido"
         }
     }
 
     private fun inicializarVistas() {
         tvBienvenido = findViewById(R.id.textSize)
-        etNombre = findViewById(R.id.editText)
+        etNombre = findViewById(R.id.etNombre)
+        etAltura = findViewById(R.id.etAltura2)
+        etEdad = findViewById(R.id.etEdad)
+        etMonedero = findViewById(R.id.etMonedero)
         bnGuardar = findViewById(R.id.button)
         switchPreferencias = findViewById(R.id.switchPreferencias)
 
         bnGuardar.setOnClickListener {
-            nombre = etNombre.text.toString()
-            cambiarTextoBienvenida(nombre)
-            val miSharedPreferences = getSharedPreferences("PERSISTENCIA", MODE_PRIVATE)
-            val editor = miSharedPreferences.edit()
-            editor.putString(NOMBRE_KEY, nombre)
-            editor.apply()
+            if(switchPreferencias.isChecked()){
+
+                nombre = etNombre.text.toString()
+                altura = etAltura.text.toString().toFloat()
+                monedero = etMonedero.text.toString().toFloat()
+                edad = Integer.valueOf(etEdad.text.toString())
+                cambiarTextoBienvenida(nombre)
+
+                val miSharedPreferences = getSharedPreferences("PERSISTENCIA", MODE_PRIVATE)
+                val editor = miSharedPreferences.edit()
+
+                editor.putString(NOMBRE_KEY, nombre)
+                editor.putFloat(ALTURA_KEY, altura)
+                editor.putFloat(MONEDERO_KEY, monedero)
+                editor.putInt(EDAD_KEY,edad)
+                editor.apply()
+            }
+            //Cambiar de Pantalla va aquí
+            val i = Intent(this, ListaJuegosActivity::class.java)
+            startActivity(i)
         }
 
     }
