@@ -13,6 +13,7 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.SwitchCompat
+import edu.iest.actividad6marzo.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var tvBienvenido: TextView
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         inicializarVistas()
 
         Log.d("PREFERENCIAS", savedInstanceState?.getString(NOMBRE_KEY).toString())
-//nombre = savedInstanceState?.getString(NOMBRE_KEY).toString()
+        //nombre = savedInstanceState?.getString(NOMBRE_KEY).toString()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
