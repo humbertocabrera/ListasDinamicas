@@ -19,4 +19,8 @@
     <string name="monedero">Monedero</string>
     <string name="regresar">Regresar</string>
     <string name="mis_preferencias">Mis Preferencias</string>
+    <string name="t">T</string>
+    <string name="horiz">Horiz.</string>
+    <string name="_2_col">2 Col</string>
+    <string name="_3_col">3 Col</string>
 </resources>

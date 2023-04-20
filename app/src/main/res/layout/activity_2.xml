@@ -55,6 +55,19 @@
         app:layout_constraintStart_toEndOf="@+id/consola"
         app:layout_constraintTop_toBottomOf="@+id/tituloJuego" />
 
+
+    <TextView
+        android:id="@+id/clasificacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/t"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bnComprar"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toEndOf="@+id/fotoJuego"
+        app:layout_constraintTop_toBottomOf="@+id/consola"
+        app:layout_constraintVertical_bias="0.257" />
+
     <Button
         android:id="@+id/bnComprar"
         android:layout_width="wrap_content"
