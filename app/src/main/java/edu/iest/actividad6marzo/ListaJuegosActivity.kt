@@ -17,12 +17,17 @@ class ListaJuegosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lista_juegos_activity)
 
+        //Creamos variables para relacionarlas con los elementos de la vista
         val fabPreferencias = findViewById<FloatingActionButton>(R.id.floatActButton)
         val btnOrientacion = findViewById<Button>(R.id.orientacion)
         val btnDosColumnas = findViewById<Button>(R.id.dosColumnas)
         val btnTresColumnas = findViewById<Button>(R.id.tresColumnas)
 
+        //Llamamos a la clase Faker Videjuegos para obtener la lista de juegos con la función
+        //getVideogames
         val juegos = FakerVideojuego().getVideogames()
+
+        //Creamos una variable para relacionar el RecyclerView de la vista
         val recycler = findViewById<RecyclerView>(R.id.recyclerJuegos)
 
         var isPortrait = true
@@ -40,7 +45,8 @@ class ListaJuegosActivity : AppCompatActivity() {
         //LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         //GridLayoutManager(this, CANTIDAD_COLUMNAS)
 
-        //  usamos el administrador de layouts para utilizar nuestro layout de juego para el recycler view con Linear layout
+        //  usamos el administrador de layouts para utilizar nuestro layout de juego para el
+        //  recycler view con Linear layout
         recycler.layoutManager = linearLayoutManager
         recycler.adapter = VideojuegoAdapter(juegos, this)
 

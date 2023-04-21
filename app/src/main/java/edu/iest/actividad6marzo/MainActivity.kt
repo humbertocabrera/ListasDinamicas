@@ -115,6 +115,8 @@ class MainActivity : AppCompatActivity() {
 
         bnGuardar.setOnClickListener {
             if(switchPreferencias.isChecked()){
+                //Al dar clic en el botón verificamos si el switch fue activado, en caso de hacerlo
+                //guardamos los valores de los campos.
 
                 nombre = etNombre.text.toString()
                 altura = etAltura.text.toString().toFloat()

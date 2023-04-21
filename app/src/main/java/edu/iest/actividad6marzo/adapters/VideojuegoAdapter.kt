@@ -42,7 +42,7 @@ class VideojuegoAdapter(videojuegos: ArrayList<Videojuego>, context: Context) :
                     clasificacion = view.findViewById(R.id.clasificacion)
                     bnComprar = view.findViewById(R.id.bnComprar)
 
-                    bnComprar.setOnClickListener(this)
+                    bnComprar.setOnClickListener(this) //Habilitar la funcion de onClick de abajo
                 }
 
         //
